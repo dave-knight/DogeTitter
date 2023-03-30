@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\source\mypluginprocessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\source\myplugincontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\source\mypluginentry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\public.sdk\source\main\dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\source\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\source\myplugincids.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\source\mypluginprocessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\source\myplugincontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\resource\myplugineditor.uidesc" />
+    <CustomBuild Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\resource\38873358E10A5F37AC09E23E228F88C6_snapshot.png">
+      <Filter>Resources</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\resource\38873358E10A5F37AC09E23E228F88C6_snapshot_2.0x.png">
+      <Filter>Resources</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\resource\win32resource.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{A6C9FB4E-746A-31BC-844A-45C5D269E719}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{0769EB80-3611-32EF-93CC-8840411D0349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{DCE608F1-C474-3A06-BD6E-F69556390B5B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

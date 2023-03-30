@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{83D3DAD2-0C8D-3867-9CEA-836D178AB7B3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/david/OneDrive/Coding Projects/3rd Party/VST_SDK/vst3sdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/david/OneDrive/Coding Projects/HarmoniPlex200/HarmoniPlex200" "-BC:/Users/david/OneDrive/Coding Projects/HarmoniPlex200/HarmoniPlex200/build" --check-stamp-file "C:/Users/david/OneDrive/Coding Projects/HarmoniPlex200/HarmoniPlex200/build/vst3sdk/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.26\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CMakePrintHelpers.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AAXSupport.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddCommonOptions.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddSMTGLibrary.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddVST3Library.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddVST3Options.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_Bundle.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_CodeSign.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_ConfigureCmakeGenerator.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_CoreAudioSupport.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_CustomModuleTarget.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_DetectPlatform.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_ExportedSymbols.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_FindJack.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_Global.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_PlatformIOS.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_PlatformToolset.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_Platform_Windows.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_PrefixHeader.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_SetDebugExecutable.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_SetupVST3LibraryDefaultPath.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_UniversalBinary.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_VST3_SDK.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_VstGuiSupport.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/david/OneDrive/Coding Projects/3rd Party/VST_SDK/vst3sdk/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/david/OneDrive/Coding Projects/HarmoniPlex200/HarmoniPlex200" "-BC:/Users/david/OneDrive/Coding Projects/HarmoniPlex200/HarmoniPlex200/build" --check-stamp-file "C:/Users/david/OneDrive/Coding Projects/HarmoniPlex200/HarmoniPlex200/build/vst3sdk/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.26\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CMakePrintHelpers.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\CheckLanguage.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.26\Modules\FindPackageMessage.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AAXSupport.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddCommonOptions.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddSMTGLibrary.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddVST3Library.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_AddVST3Options.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_Bundle.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_CodeSign.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_ConfigureCmakeGenerator.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_CoreAudioSupport.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_CustomModuleTarget.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_DetectPlatform.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_ExportedSymbols.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_FindJack.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_Global.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_PlatformIOS.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_PlatformToolset.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_Platform_Windows.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_PrefixHeader.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_SetDebugExecutable.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_SetupVST3LibraryDefaultPath.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_UniversalBinary.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_VST3_SDK.cmake;C:\Users\david\OneDrive\Coding Projects\3rd Party\VST_SDK\vst3sdk\cmake\modules\SMTG_VstGuiSupport.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\ZERO_CHECK.vcxproj">
+      <Project>{0F05C0C0-4EEF-35DF-8D23-580938A533DF}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\public.sdk\samples\vst-hosting\inspectorapp\VST3Inspector.vcxproj">
+      <Project>{D455666A-7D0E-3770-A64F-792864E85DA9}</Project>
+      <Name>VST3Inspector</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\base\base.vcxproj">
+      <Project>{9168FCF7-A1AA-3A2B-BE9D-0E14AF12EA06}</Project>
+      <Name>base</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\public.sdk\samples\vst-utilities\moduleinfotool\moduleinfotool.vcxproj">
+      <Project>{5CFC8FFE-53D8-3181-8739-C6F699D17E67}</Project>
+      <Name>moduleinfotool</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\pluginterfaces\pluginterfaces.vcxproj">
+      <Project>{47C25444-CBB8-3A31-946A-63D64AC12256}</Project>
+      <Name>pluginterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\public.sdk\sdk.vcxproj">
+      <Project>{E154B2B6-0C6F-35DE-A63B-62EFC8B80BCD}</Project>
+      <Name>sdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\public.sdk\sdk_common.vcxproj">
+      <Project>{AE82F67D-DB83-3B4B-B8D4-7F6985130B96}</Project>
+      <Name>sdk_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\public.sdk\sdk_hosting.vcxproj">
+      <Project>{6D9429B5-D9F5-3EA6-ABAE-E79047C3DC4C}</Project>
+      <Name>sdk_hosting</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\public.sdk\samples\vst-hosting\validator\validator.vcxproj">
+      <Project>{2453FF7B-68DD-37D1-A54A-C1BE37974341}</Project>
+      <Name>validator</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\VSTGUI.build\vstgui\lib\vstgui.vcxproj">
+      <Project>{0BF47B7B-4D44-3FFC-81B1-51622C2EB1C7}</Project>
+      <Name>vstgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\VSTGUI.build\vstgui\standalone\vstgui_standalone.vcxproj">
+      <Project>{DFAF9839-FCAE-38F3-82AE-AFC2F8E49B3B}</Project>
+      <Name>vstgui_standalone</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\vstgui_support.vcxproj">
+      <Project>{766785E2-4A67-3EBE-B21E-63DC207D0958}</Project>
+      <Name>vstgui_support</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\vst3sdk\VSTGUI.build\vstgui\uidescription\vstgui_uidescription.vcxproj">
+      <Project>{0D71996C-4867-337B-B6B2-FCD5995D5750}</Project>
+      <Name>vstgui_uidescription</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
