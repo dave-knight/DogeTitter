@@ -41,7 +41,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(HOMEDRIVE)$(HOMEPATH)\VST</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\david\OneDrive\Coding Projects\HarmoniPlex200\HarmoniPlex200\build\VST3\Debug\HarmoniPlex200.vst3\Contents\x86_64-win\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">HarmoniPlex200.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">HarmoniPlex200</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.vst3</TargetExt>
