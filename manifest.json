@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Twitter Logo Replacer",
+  "version": "1.0",
+  "description": "Replaces the Twitter logo with a user-selectable image.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://twitter.com/*"
+      ],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
