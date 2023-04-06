@@ -1,7 +1,29 @@
+function findTwitterLogo() {
+  const headingElements = document.querySelectorAll('h1[role="heading"]');
+
+  for (const heading of headingElements) {
+    const link = heading.querySelector('a[aria-label="Twitter"]');
+
+    if (link) {
+      const svg = link.querySelector('svg');
+      if (svg) {
+        return svg;
+      }
+    }
+  }
+
+  return null;
+}
+
 function replaceTwitterLogo(logoDataUrl) {
-  const logoElement = document.querySelector('img[alt="Twitter"]');
+  const logoElement = findTwitterLogo();
   if (logoElement) {
-    logoElement.src = logoDataUrl;
+    const img = document.createElement('img');
+    img.src = logoDataUrl;
+    img.style.width = '24px';
+    img.style.height = '24px';
+    img.style.verticalAlign = 'bottom';
+    logoElement.parentNode.replaceChild(img, logoElement);
   }
 }
 
