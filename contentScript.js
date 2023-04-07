@@ -42,15 +42,29 @@ async function replaceTwitterLogo(logoDataUrl, logoElement) {
 
   const dogeContainer = document.createElement("div");
   dogeContainer.style.backgroundColor = "transparent";
-  dogeContainer.style.width = img.width + 'px';
-  dogeContainer.style.height = img.height + 'px';
+  dogeContainer.style.width = '100%';
+  dogeContainer.style.position = 'relative';
 
-  dogeContainer.appendChild(img);
+  const imgWrapper = document.createElement('div');
+  imgWrapper.style.position = 'relative';
+  imgWrapper.style.paddingBottom = (img.height / img.width * 100) + '%';
+
+  const imgElem = document.createElement('img');
+  imgElem.style.position = 'absolute';
+  imgElem.style.top = '0';
+  imgElem.style.left = '0';
+  imgElem.style.width = '100%';
+  imgElem.style.height = '100%';
+  imgElem.style.objectFit = 'contain';
+  imgElem.src = logoDataUrl;
+
+  imgWrapper.appendChild(imgElem);
+  dogeContainer.appendChild(imgWrapper);
+
   if (logoElement.parentNode) {
     logoElement.parentNode.replaceChild(dogeContainer, logoElement);
   }
 }
-
 
 function replaceTwitterLogos(logoDataUrl) {
   const logoElements = findTwitterLogos();
