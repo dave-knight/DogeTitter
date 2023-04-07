@@ -34,21 +34,23 @@ function findTwitterLogos() {
 }
 
 async function replaceTwitterLogo(logoDataUrl, logoElement) {
-  const img = document.createElement('img');
+  const img = document.createElement("img");
   img.src = logoDataUrl;
+  img.alt = "Doge logo"; // add alt text for accessibility
 
   await new Promise((resolve) => requestAnimationFrame(resolve));
 
-  const dogeContainer = document.createElement('div');
-  dogeContainer.style.backgroundColor = 'transparent';
-  dogeContainer.style.width = img.style.width;
-  dogeContainer.style.height = img.style.height;
+  const dogeContainer = document.createElement("div");
+  dogeContainer.style.backgroundColor = "transparent";
+  dogeContainer.style.width = img.width + 'px';
+  dogeContainer.style.height = img.height + 'px';
 
   dogeContainer.appendChild(img);
-
-  // Add this line back to replace the Twitter logo with the Doge image
-  logoElement.parentNode.replaceChild(dogeContainer, logoElement);
+  if (logoElement.parentNode) {
+    logoElement.parentNode.replaceChild(dogeContainer, logoElement);
+  }
 }
+
 
 function replaceTwitterLogos(logoDataUrl) {
   const logoElements = findTwitterLogos();
@@ -57,43 +59,60 @@ function replaceTwitterLogos(logoDataUrl) {
   }
 }
 
-async function fetchImageDataUrl() {
-  const response = await fetch('https://raw.githubusercontent.com/dave-knight/DogeTitter/6638edc921a355baaa014947c883b29377e7a9ec/images/dogeCrop.png');
-  const blob = await response.blob();
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
-}
-
 async function init() {
-  // Clear the stored logoDataUrl. TODO: Remove this line when the extension is published.
-  chrome.storage.local.remove('logoDataUrl');
-  chrome.storage.local.get('logoDataUrl', async function (data) {
-    if (data.logoDataUrl) {
-      replaceTwitterLogos(data.logoDataUrl);
+  try {
+    chrome.storage.local.get("logoDataUrl", async function (data) {
+      if (data.logoDataUrl) {
+        replaceTwitterLogos(data.logoDataUrl);
+      } else {
+        const response = await fetch('https://raw.githubusercontent.com/dave-knight/DogeTitter/6638edc921a355baaa014947c883b29377e7a9ec/images/dogeCrop.png');
+        const blob = await response.blob();
+        const logoDataUrl = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+        replaceTwitterLogos(logoDataUrl);
+        chrome.storage.local.set({ logoDataUrl: logoDataUrl });
+      }
+    });
+  } catch (error) {
+    if (error.message.includes("Extension context invalidated")) {
+      console.log("Extension context invalidated, stopping script execution.");
     } else {
-      const logoDataUrl = await fetchImageDataUrl();
-      replaceTwitterLogos(logoDataUrl);
-      chrome.storage.local.set({ logoDataUrl });
+      throw error;
     }
-  });
+  }
 }
 
 function onDOMContentLoaded() {
-  init();
+  try {
+    init();
 
-  const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
-      if (mutation.type === 'childList') {
+    const observer = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          init();
+        }
+      }
+    });
+
+    const observerConfig = { attributes: false, childList: true, subtree: true };
+    observer.observe(document.documentElement, observerConfig);
+
+    window.addEventListener('storage', function (e) {
+      if (e.key === 'theme') {
         init();
       }
+    });
+  } catch (error) {
+    if (error.message.includes("Extension context invalidated")) {
+      console.log("Extension context invalidated, stopping script execution.");
+    } else {
+      throw error;
     }
-  });
-
-  observer.observe(document.body, { attributes: false, childList: true, subtree: true });
+  }
 }
 
 if (document.readyState === 'loading') {
@@ -108,5 +127,9 @@ function sendKeepAlive() {
 }
 
 if (navigator.serviceWorker && navigator.serviceWorker.controller) {
-  sendKeepAlive();
+  navigator.serviceWorker.addEventListener('message', function (event) {
+    if (event.data.type === 'ping') {
+      sendKeepAlive();
+    }
+  });
 }
