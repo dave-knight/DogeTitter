@@ -39,8 +39,9 @@ function findTwitterLogos() {
 function replaceTwitterLogo(logoDataUrl, logoElement) {
   const img = document.createElement('img');
   img.src = logoDataUrl;
-  img.style.width = logoElement.getBoundingClientRect().width + 'px';
-  img.style.height = logoElement.getBoundingClientRect().height + 'px';
+  const parentDiv = logoElement.parentNode;
+  img.style.width = parentDiv.getBoundingClientRect().width + 'px';
+  img.style.height = parentDiv.getBoundingClientRect().height + 'px';
   img.style.verticalAlign = 'bottom';
   logoElement.parentNode.replaceChild(img, logoElement);
 }
