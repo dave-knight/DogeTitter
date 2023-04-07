@@ -1,4 +1,4 @@
-# DogeTitter
+# ![Logo](dogeCrop.png) So Twitter Much Ðoge
 ## Requirements
 Chromium based browser e.g. Chrome, Edge.
 ## Installation
