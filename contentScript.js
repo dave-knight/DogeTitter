@@ -33,14 +33,21 @@ function findTwitterLogos() {
   return twitterLogos;
 }
 
-function replaceTwitterLogo(logoDataUrl, logoElement) {
+async function replaceTwitterLogo(logoDataUrl, logoElement) {
   const img = document.createElement('img');
   img.src = logoDataUrl;
-  const parentDiv = logoElement.parentNode;
-  img.style.width = parentDiv.getBoundingClientRect().width + 'px';
-  img.style.height = parentDiv.getBoundingClientRect().height + 'px';
-  img.style.verticalAlign = 'bottom';
-  logoElement.parentNode.replaceChild(img, logoElement);
+
+  await new Promise((resolve) => requestAnimationFrame(resolve));
+
+  const dogeContainer = document.createElement('div');
+  dogeContainer.style.backgroundColor = 'transparent';
+  dogeContainer.style.width = img.style.width;
+  dogeContainer.style.height = img.style.height;
+
+  dogeContainer.appendChild(img);
+
+  // Add this line back to replace the Twitter logo with the Doge image
+  logoElement.parentNode.replaceChild(dogeContainer, logoElement);
 }
 
 function replaceTwitterLogos(logoDataUrl) {
@@ -51,7 +58,7 @@ function replaceTwitterLogos(logoDataUrl) {
 }
 
 async function fetchImageDataUrl() {
-  const response = await fetch(chrome.runtime.getURL('images/dogeCrop.png'));
+  const response = await fetch('https://raw.githubusercontent.com/dave-knight/DogeTitter/6638edc921a355baaa014947c883b29377e7a9ec/images/dogeCrop.png');
   const blob = await response.blob();
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -62,11 +69,12 @@ async function fetchImageDataUrl() {
 }
 
 async function init() {
+  // Clear the stored logoDataUrl. TODO: Remove this line when the extension is published.
+  chrome.storage.local.remove('logoDataUrl');
   chrome.storage.local.get('logoDataUrl', async function (data) {
     if (data.logoDataUrl) {
       replaceTwitterLogos(data.logoDataUrl);
     } else {
-      // Load the image (myImage.png) and replace the Twitter logo
       const logoDataUrl = await fetchImageDataUrl();
       replaceTwitterLogos(logoDataUrl);
       chrome.storage.local.set({ logoDataUrl });
@@ -77,23 +85,28 @@ async function init() {
 function onDOMContentLoaded() {
   init();
 
-  // Set up a MutationObserver to monitor for changes in the DOM
   const observer = new MutationObserver((mutationsList) => {
     for (const mutation of mutationsList) {
       if (mutation.type === 'childList') {
-        init(); // Call init() when DOM changes are detected
+        init();
       }
     }
   });
 
-  // Observe the entire document body and its descendants for any changes
   observer.observe(document.body, { attributes: false, childList: true, subtree: true });
 }
 
 if (document.readyState === 'loading') {
-  // If the document is still loading, add an event listener for DOMContentLoaded
   document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 } else {
-  // If the document has already loaded, call the onDOMContentLoaded() function directly
   onDOMContentLoaded();
+}
+
+function sendKeepAlive() {
+  navigator.serviceWorker.controller.postMessage({ type: 'keepAlive' });
+  setTimeout(sendKeepAlive, 10000);
+}
+
+if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+  sendKeepAlive();
 }
