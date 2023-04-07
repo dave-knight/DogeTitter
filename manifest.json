@@ -1,20 +1,21 @@
 {
-  "manifest_version": 2,
   "name": "Twitter Doge",
-  "version": "1.0",
   "description": "Replaces the Twitter logo with a Doge.",
-  "icons": {
-    "16": "bd69_favicon16.png",
-    "32": "bd69_favicon32.png",
-    "48": "bd69_icon48.png",
-    "128": "bd69_icon128.png"
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "service_worker.js"
   },
-  "browser_action": {
+  "icons": {
+    "16": "images/bd69_favicon16.png",
+    "32": "images/bd69_favicon32.png",
+    "48": "images/bd69_icon48.png",
+    "128": "images/bd69_icon128.png"
+  },
+  "action": {
     "default_icon": {
-      "16": "bd69_favicon16.png",
-      "32": "bd69_favicon32.png",
-      "48": "bd69_icon48.png",
-      "128": "bd69_icon128.png"
+      "16": "images/bd69_favicon16.png",
+      "32": "images/bd69_favicon32.png"
     }
   },
   "permissions": [
@@ -24,10 +25,20 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*.twitter.com/*"
+        "https://*.twitter.com/*"
       ],
       "js": [
         "contentScript.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "images/*.png"
+      ],
+      "extension_id": [
+        "IDkmmakimpficddgkkcdhokaagahodnhpj"
       ]
     }
   ]
