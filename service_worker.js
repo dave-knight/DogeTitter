@@ -12,5 +12,13 @@ self.addEventListener('message', (event) => {
       // Close the service worker after a certain period of inactivity
       self.registration.unregister();
     }, 30000); // Adjust the timeout duration as needed (currently set to 30 seconds)
+  } else if (event.data && event.data.request === 'fetchImageDataUrl') {
+    fetchImageDataUrl()
+      .then((dataUrl) => {
+        event.ports[0].postMessage({ logoDataUrl: dataUrl });
+      })
+      .catch((err) => {
+        console.error("Error fetching image data URL:", err);
+      });
   }
 });
